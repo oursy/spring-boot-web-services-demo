@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="https://company.example.com/user/schemas"
+           elementFormDefault="qualified"
+           targetNamespace="https://company.example.com/user/schemas">
+    <xs:element name="UserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="users" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="UserId" type="xs:string"/>
+                            <xs:element name="Name" type="xs:string"/>
+                            <xs:element name="MobilePhone" type="xs:string"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                    <xs:element name="user" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+   <xs:complexType name="user">
+       <xs:sequence>
+           <xs:element name="responseStatus" type="xs:int"/>
+           <xs:element name="responseMsg" type="xs:string"/>
+       </xs:sequence>
+   </xs:complexType>
+</xs:schema>
